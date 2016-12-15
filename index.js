@@ -6,7 +6,7 @@
  * MIT Licensed
  */
 
-'use strict'
+// 'use strict'
 
 /**
  * Module dependencies.
@@ -93,37 +93,37 @@ function serveStatic (root, options) {
       path = ''
     }
 
-    // create send stream
-    var stream = send(req, path, opts)
+//     // create send stream
+//     var stream = send(req, path, opts)
 
-    // add directory handler
-    stream.on('directory', onDirectory)
+//     // add directory handler
+//     stream.on('directory', onDirectory)
 
-    // add headers listener
-    if (setHeaders) {
-      stream.on('headers', setHeaders)
-    }
+//     // add headers listener
+//     if (setHeaders) {
+//       stream.on('headers', setHeaders)
+//     }
 
-    // add file listener for fallthrough
-    if (fallthrough) {
-      stream.on('file', function onFile () {
-        // once file is determined, always forward error
-        forwardError = true
-      })
-    }
+//     // add file listener for fallthrough
+//     if (fallthrough) {
+//       stream.on('file', function onFile () {
+//         // once file is determined, always forward error
+//         forwardError = true
+//       })
+//     }
 
-    // forward errors
-    stream.on('error', function error (err) {
-      if (forwardError || !(err.statusCode < 500)) {
-        next(err)
-        return
-      }
+//     // forward errors
+//     stream.on('error', function error (err) {
+//       if (forwardError || !(err.statusCode < 500)) {
+//         next(err)
+//         return
+//       }
 
-      next()
-    })
+//       next()
+//     })
 
-    // pipe
-    stream.pipe(res)
+//     // pipe
+//     stream.pipe(res)
   }
 }
 
