@@ -70,6 +70,7 @@ function serveStatic (root, options) {
     : createNotFoundDirectoryListener()
 
   return function serveStatic (req, res, next) {
+    console.log(req.url);
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       if (fallthrough) {
         return next()
