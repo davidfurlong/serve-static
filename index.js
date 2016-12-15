@@ -26,7 +26,7 @@ var url = require('url')
  */
 
 module.exports = serveStatic
-// module.exports.mime = send.mime
+module.exports.mime = send.mime
 
 /**
  * @param {string} root
@@ -71,22 +71,22 @@ function serveStatic (root, options) {
 
   return function serveStatic (req, res, next) {
     console.log(req.url);
-//     if (req.method !== 'GET' && req.method !== 'HEAD') {
-//       if (fallthrough) {
-//         return next()
-//       }
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+      if (fallthrough) {
+        return next()
+      }
 
-//       // method not allowed
-//       res.statusCode = 405
-//       res.setHeader('Allow', 'GET, HEAD')
-//       res.setHeader('Content-Length', '0')
-//       res.end()
-//       return
-//     }
+      // method not allowed
+      res.statusCode = 405
+      res.setHeader('Allow', 'GET, HEAD')
+      res.setHeader('Content-Length', '0')
+      res.end()
+      return
+    }
 
-//     var forwardError = !fallthrough
-//     var originalUrl = parseUrl.original(req)
-//     var path = parseUrl(req).pathname
+    var forwardError = !fallthrough
+    var originalUrl = parseUrl.original(req)
+    var path = parseUrl(req).pathname
 
     // make sure redirect occurs at mount
     if (path === '/' && originalUrl.pathname.substr(-1) !== '/') {
