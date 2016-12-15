@@ -149,8 +149,9 @@ function collapseLeadingSlashes (str) {
  */
 
 function createNotFoundDirectoryListener () {
-   console.log(this.req.url);
   return function notFound () {
+       console.log(this.req.url);
+
     this.error(404)
   }
 }
@@ -161,8 +162,8 @@ function createNotFoundDirectoryListener () {
  */
 
 function createRedirectDirectoryListener () {
-  console.log(this.req.url);
   return function redirect () {
+      console.log(this.req.url);
     if (this.hasTrailingSlash()) {
       this.error(404)
       return
