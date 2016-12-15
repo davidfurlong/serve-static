@@ -6,7 +6,7 @@
  * MIT Licensed
  */
 
-'use strict'
+// 'use strict'
 
 /**
  * Module dependencies.
@@ -16,9 +16,9 @@
 // var encodeUrl = require('encodeurl')
 // var escapeHtml = require('escape-html')
 // var parseUrl = require('parseurl')
-var resolve = require('path').resolve
-var send = require('send')
-var url = require('url')
+// var resolve = require('path').resolve
+// var send = require('send')
+// var url = require('url')
 
 /**
  * Module exports.
@@ -26,7 +26,7 @@ var url = require('url')
  */
 
 module.exports = serveStatic
-module.exports.mime = send.mime
+// module.exports.mime = send.mime
 
 /**
  * @param {string} root
