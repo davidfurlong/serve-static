@@ -26,7 +26,7 @@ var url = require('url')
  */
 
 module.exports = serveStatic
-module.exports.mime = send.mime
+// module.exports.mime = send.mime
 
 /**
  * @param {string} root
@@ -70,7 +70,7 @@ function serveStatic (root, options) {
     : createNotFoundDirectoryListener()
 
   return function serveStatic (req, res, next) {
-    console.log(req.url);
+    console.log(req.url, 73);
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       if (fallthrough) {
         return next()
@@ -150,7 +150,7 @@ function collapseLeadingSlashes (str) {
 
 function createNotFoundDirectoryListener () {
   return function notFound () {
-       console.log(this.req.url);
+       console.log(this.req.url, 153);
 
     this.error(404)
   }
@@ -163,7 +163,7 @@ function createNotFoundDirectoryListener () {
 
 function createRedirectDirectoryListener () {
   return function redirect () {
-      console.log(this.req.url);
+    console.log(this.req.url, 166);
     if (this.hasTrailingSlash()) {
       this.error(404)
       return
