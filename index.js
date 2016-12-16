@@ -93,13 +93,13 @@ function serveStatic (root, options) {
       path = ''
     }
 
-//     // create send stream
-//     var stream = send(req, path, opts)
+    // create send stream
+    var stream = send(req, path, opts)
 
 //     // add directory handler
 //     stream.on('directory', onDirectory)
 
-//     // add headers listener
+    // add headers listener
 //     if (setHeaders) {
 //       stream.on('headers', setHeaders)
 //     }
