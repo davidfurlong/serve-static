@@ -97,7 +97,7 @@ function serveStatic (root, options) {
     var stream = send(req, path, opts)
 
     // add directory handler
-    stream.on('directory', onDirectory)
+//     stream.on('directory', onDirectory)
 
     // add headers listener
     if (setHeaders) {
