@@ -100,9 +100,9 @@ function serveStatic (root, options) {
 //     stream.on('directory', onDirectory)
 
     // add headers listener
-//     if (setHeaders) {
-//       stream.on('headers', setHeaders)
-//     }
+    if (setHeaders) {
+      stream.on('headers', setHeaders)
+    }
 
     // add file listener for fallthrough
     if (fallthrough) {
