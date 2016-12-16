@@ -113,14 +113,14 @@ function serveStatic (root, options) {
 //     }
 
 //     // forward errors
-//     stream.on('error', function error (err) {
-//       if (forwardError || !(err.statusCode < 500)) {
-//         next(err)
-//         return
-//       }
+    stream.on('error', function error (err) {
+      if (forwardError || !(err.statusCode < 500)) {
+        next(err)
+        return
+      }
 
-//       next()
-//     })
+      next()
+    })
 
     // pipe
     stream.pipe(res)
