@@ -104,26 +104,26 @@ function serveStatic (root, options) {
 //       stream.on('headers', setHeaders)
 //     }
 
-//     // add file listener for fallthrough
-//     if (fallthrough) {
-//       stream.on('file', function onFile () {
-//         // once file is determined, always forward error
-//         forwardError = true
-//       })
-//     }
+    // add file listener for fallthrough
+    if (fallthrough) {
+      stream.on('file', function onFile () {
+        // once file is determined, always forward error
+        forwardError = true
+      })
+    }
 
-//     // forward errors
-//     stream.on('error', function error (err) {
-//       if (forwardError || !(err.statusCode < 500)) {
-//         next(err)
-//         return
-//       }
+    // forward errors
+    stream.on('error', function error (err) {
+      if (forwardError || !(err.statusCode < 500)) {
+        next(err)
+        return
+      }
 
-//       next()
-//     })
+      next()
+    })
 
-//     // pipe
-//     stream.pipe(res)
+    // pipe
+    stream.pipe(res)
   }
 }
 
