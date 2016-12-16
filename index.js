@@ -97,12 +97,12 @@ function serveStatic (root, options) {
     var stream = send(req, path, opts)
 
     // add directory handler
-    stream.on('directory', next)
+//     stream.on('directory', onDirectory)
 
     // add headers listener
-    if (setHeaders) {
-      stream.on('headers', setHeaders)
-    }
+//     if (setHeaders) {
+//       stream.on('headers', setHeaders)
+//     }
 
     // add file listener for fallthrough
     if (fallthrough) {
